@@ -1,0 +1,149 @@
+<div style="display: inline-block; width: 100%;">
+    <app-header></app-header>
+</div>
+<div>
+    
+<nav>
+    <ul class="products-navbar">
+      <li><a (click)="selectCategory('MobilePhones')"><i class="fas fa-mobile-alt"></i> Mobile Phones</a></li>
+      <li><a (click)="selectCategory('HeadPhones')"><i class="fas fa-headphones-alt"></i> Headphones</a></li>
+      <li><a><i class="fas fa-laptop"></i> Laptops</a></li>
+      <li><a><i class="fas fa-tv"></i> Televisions</a></li>
+      <li><a><i class="fas fa-camera"></i> Cameras</a></li>
+      <li><a><i class="fas fa-clock"></i> Watches</a></li>
+      <li><a><i class="fas fa-lightbulb"></i> Smart Lighting</a></li>
+      <li><a><i class="fas fa-blender"></i> Kitchen Appliances</a></li>
+      <li><a><i class="fas fa-wifi"></i> WiFi Routers</a></li>
+      <li><a><i class="fas fa-sim-card"></i> Accessories</a></li>
+    </ul>
+  </nav>
+  
+  <div *ngIf="selectedCategory === 'MobilePhones'">
+    <div>
+        <h2 style="text-align: center;">Mobile phones</h2>
+        <div class="featured" style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div class="featured-container" *ngFor="let phone of mobilePhones">
+                <div class="product-card">
+                    <img [src]="phone.img" alt="{{phone.name}}">
+                    <h3><a style="color: black; text-decoration: none;">{{phone.name}}</a></h3>
+                    <p>&#8377; {{phone.price}}</p>
+                    <hr>
+                    <button class="add-to-cart-btn">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <i class="fas fa-heart like-icon"></i>
+                </div>
+            </div>
+        </div>        
+    </div>
+  </div>
+  
+  <div *ngIf="selectedCategory === 'HeadPhones'">
+    <div>
+        <h2 style="text-align: center;">Headphones</h2>
+        <div class="featured" style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div class="featured-container" *ngFor="let headphone of headPhones">
+                <div class="product-card">
+                    <img [src]="headphone.img" alt="{{ headphone.name }}">
+                    <h3><a style="color: black; text-decoration: none;">{{ headphone.name }}</a></h3>
+                    <p>&#8377;{{ headphone.price }}</p>
+                    <hr>
+                    <button class="add-to-cart-btn">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <i class="fas fa-heart like-icon"></i>
+                </div>
+            </div>
+        </div>        
+    </div>
+  </div>
+  
+</div>
+<div *ngIf="!isCategorySelected()">
+    <div class="slider-container" >
+        <div class="slides">
+            <img *ngFor="let slide of slides; let i = index" 
+                 [src]="slide" 
+                 [ngClass]="{ active: i === currentSlideIndex }" 
+                 alt="">
+        </div>
+    
+        <div class="slider-dots">
+            <span *ngFor="let slide of slides; let i = index" 
+                  class="dot" 
+                  [ngClass]="{ active: i === currentSlideIndex }" 
+                  (click)="currentSlide(i)"></span>
+        </div>
+    </div>
+    
+    
+    <div class="featured">
+        <h2>Featured Products</h2>
+        <div class="featured-container">
+            <div class="product-card">
+                <img src="img 6.jpg" alt="Product 1">
+                <h3><a style="color: black;text-decoration: none;" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flipkart.com%2Flenovo-ideapad-3-core-i3-10th-gen-8-gb-256-gb-ssd-windows-11-home-15iml05-thin-light-laptop%2Fp%2Fitmd1871bfcde765&psig=AOvVaw0bGoH-dtg51TQzmKR1c2-J&ust=1728557377962000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPD88KSQgYkDFQAAAAAdAAAAABAE">Lenovo IdeaPad 3 Intel Core i3 10th Gen Thin and Light Laptop  </a></h3>
+                <p>&#8377;299</p>
+                <hr>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <i class="fas fa-heart like-icon"></i>
+            </div>
+            
+            <div class="product-card">
+                <img src="img7.jpg" alt="Product 2">
+                <h3><a style="color: black;text-decoration: none;" href="https://www.google.com/aclk?sa=l&ai=DChcSEwis6cvEkIGJAxVP-kwCHQpUFIQYABABGgJ0bQ&co=1&ase=2&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfChjpGmVCRV4jMTlIvhbUU_iLy0xULffbDD08dJIPYeV1RRL3mASk0aAlSfEALw_wcB&sig=AOD64_1ccGQcTQxLidUO6JibAnbogt-rjw&ctype=5&q=&nis=4&ved=0ahUKEwj6ocfEkIGJAxWni68BHdZ5CYAQww8Ixwo&adurl=">16 Revolutionizing Mobile Technology</a></h3>
+                <p>&#8377;399</p>
+                <hr>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <i class="fas fa-heart like-icon"></i>
+            </div>
+    
+            <div class="product-card">
+                <img src="img8.jpg" alt="Product 3">
+                <h3><a style="color: black;text-decoration: none;" href="https://www.google.com/shopping/product/1868967262886752855?q=canon+camera+16+hd&sca_esv=6350d5eca2fae0eb&biw=1536&bih=738&sxsrf=ADLYWIIIQ5nl1KUmlB65pvSS7EwPjuaUDQ:1728471077355&oq=canon&gs_lp=Egtwcm9kdWN0cy1jYyIFY2Fub24qAggAMgQQIxgnMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESPEgUMYGWN4QcAF4AJABAJgB4AGgAfIHqgEFMC4zLjK4AQHIAQD4AQGYAgagAtwIqAINwgIHECMYJxjqAsICCxCuARgnGMoDGOoCmAMTkgcFMS4wLjWgB8sb&sclient=products-cc&prds=eto:16301448415443638693_0,pid:5066613193925342631,rsk:PC_7291076286949694216&sa=X&ved=0ahUKEwiLhtPckIGJAxX2ia8BHY03Kx4Q8gIIiRAoAA">Canon EOS R100 Mirrorless Camera</a></h3>
+                <p>&#8377;499</p>
+                <hr>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <i class="fas fa-heart like-icon"></i>
+            </div>
+    
+            <div class="product-card">
+                <img src="img9.jpg" alt="Product 4">
+                <h3><a style="color: black;text-decoration: none;" href="https://www.google.com/shopping/product/1578744819449615547?q=wifi+routers+jpg&sca_esv=6350d5eca2fae0eb&biw=1536&bih=738&sxsrf=ADLYWIKWibxfGfvU9oxHbnZF-hpOmbmNug:1728471127877&oq=wifi&gs_lp=Egtwcm9kdWN0cy1jYyIEd2lmaSoCCAAyBBAjGCcyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjPHlClB1jMDnABeACQAQCYAdwBoAGzBqoBBTAuMi4yuAEByAEA-AEBmAIFoAKfB6gCDcICBxAjGCcY6gLCAgsQrgEYJxjKAxjqApgDOpIHBTEuMC40oAePFg&sclient=products-cc&prds=eto:6949030198786168104_0,pid:11729791260489316680,rsk:PC_335425823905126138&sa=X&ved=0ahUKEwjOkPDskIGJAxVama8BHQ_oC_0Q8gIIqRMoAA">TP-Link Archer C20 AC750 Wireless Router</a></h3>
+                <p>&#8377;1,599</p>
+                <hr>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <i class="fas fa-heart like-icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-slider-container">
+        <div class="logo-slides">
+            <img *ngFor="let logo of logos; let i = index" 
+                 [src]="logo.src" 
+                 [alt]="logo.alt" 
+                 [ngClass]="{ active: i === currentLogoSlideIndex }">
+        </div>
+        
+        <div class="slider-dots">
+            <span *ngFor="let logo of logos; let i = index" 
+                  class="dot" 
+                  [ngClass]="{ active: i === currentLogoSlideIndex }" 
+                  (click)="currentLogoSlide(i)"></span>
+        </div>
+    </div>
+    
+</div>
+
+<div style="display: inline-block; width: 100%;">
+    <app-footer></app-footer>
+</div>
